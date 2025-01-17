@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Performance Report</title>
+    <!-- Include Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .metric-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .positive-trend {
+            color: #10B981;
+        }
+        .negative-trend {
+            color: #EF4444;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-8">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800">Marketing Performance Report</h1>
+            <p class="text-gray-600 mt-2">Kids Sportswear Egypt - January 2025</p>
+        </div>
+
+        <!-- Key Metrics Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- ROAS -->
+            <div class="metric-card">
+                <h3 class="text-sm text-gray-500">ROAS</h3>
+                <div class="text-3xl font-bold mt-2">5.67x</div>
+                <div class="positive-trend text-sm mt-1">↑ 18.1% vs last period</div>
+            </div>
+
+            <!-- CTR -->
+            <div class="metric-card">
+                <h3 class="text-sm text-gray-500">CTR</h3>
+                <div class="text-3xl font-bold mt-2">3.84%</div>
+                <div class="positive-trend text-sm mt-1">↑ 20% vs last period</div>
+            </div>
+
+            <!-- CPA -->
+            <div class="metric-card">
+                <h3 class="text-sm text-gray-500">CPA</h3>
+                <div class="text-3xl font-bold mt-2">EGP 411.21</div>
+                <div class="positive-trend text-sm mt-1">↓ 8.6% improvement</div>
+            </div>
+
+            <!-- Conversion Rate -->
+            <div class="metric-card">
+                <h3 class="text-sm text-gray-500">Conversion Rate</h3>
+                <div class="text-3xl font-bold mt-2">2.8%</div>
+                <div class="positive-trend text-sm mt-1">↑ 33.3% vs last period</div>
+            </div>
+        </div>
+
+        <!-- Campaign Performance -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <!-- Top Campaigns -->
+            <div class="card">
+                <h2 class="text-xl font-bold mb-4">Top Performing Campaigns</h2>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-green-500 pl-4">
+                        <h4 class="font-bold">Winter Collection</h4>
+                        <p class="text-gray-600">ROAS: 16.99x (vs 12.5x benchmark)</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-bold">MSG/Nov Campaign</h4>
+                        <p class="text-gray-600">ROAS: 6.37x (vs 5.5x benchmark)</p>
+                    </div>
+                    <div class="border-l-4 border-yellow-500 pl-4">
+                        <h4 class="font-bold">MSG/Winter</h4>
+                        <p class="text-gray-600">ROAS: 3.77x (vs 4.0x benchmark)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="card">
+                <h2 class="text-xl font-bold mb-4">Key Performance Insights</h2>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-2">
+                        <span class="text-green-500 text-xl">✓</span>
+                        <div>
+                            <h4 class="font-bold">Overall ROAS Improvement</h4>
+                            <p class="text-gray-600">18.1% increase driven by winter collection</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-green-500 text-xl">✓</span>
+                        <div>
+                            <h4 class="font-bold">Strong CTR Performance</h4>
+                            <p class="text-gray-600">20% above benchmark and industry standards</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-green-500 text-xl">✓</span>
+                        <div>
+                            <h4 class="font-bold">CPA Optimization</h4>
+                            <p class="text-gray-600">8.6% reduction in acquisition costs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Quick Wins -->
+            <div class="card">
+                <h2 class="text-xl font-bold mb-4">Quick Wins</h2>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-2">
+                        <span class="text-green-500">•</span>
+                        Scale Winter Collection (+20% budget)
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-green-500">•</span>
+                        Implement retargeting exclusions
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-green-500">•</span>
+                        Expand to 2% LAL audiences
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Testing Framework -->
+            <div class="card">
+                <h2 class="text-xl font-bold mb-4">Testing Framework</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-bold text-gray-700">Creative Tests</h3>
+                        <ul class="mt-2 space-y-2 text-gray-600">
+                            <li>• Seasonal vs Generic Content</li>
+                            <li>• UGC vs Professional Content</li>
+                            <li>• Video Length Variations</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-700">Audience Tests</h3>
+                        <ul class="mt-2 space-y-2 text-gray-600">
+                            <li>• Interest Targeting Expansion</li>
+                            <li>• LAL Audience Scaling</li>
+                            <li>• Retargeting Window Testing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Budget Allocation -->
+            <div class="card">
+                <h2 class="text-xl font-bold mb-4">Budget Allocation</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-bold text-gray-700">Performance (70%)</h3>
+                        <ul class="mt-2 space-y-2 text-gray-600">
+                            <li>• Winter Collection: 40%</li>
+                            <li>• MSG/Nov: 20%</li>
+                            <li>• MSG/Winter: 10%</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-700">Testing (30%)</h3>
+                        <ul class="mt-2 space-y-2 text-gray-600">
+                            <li>• Creative Tests: 15%</li>
+                            <li>• Audience Tests: 15%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="card">
+            <h2 class="text-xl font-bold mb-4">Implementation Timeline</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="font-bold text-gray-700 mb-2">Immediate (24-48 hrs)</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Increase Winter Collection budget</li>
+                        <li>• Set up retargeting exclusions</li>
+                        <li>• Update frequency caps</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-700 mb-2">Week 1</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Launch creative tests</li>
+                        <li>• Expand audience targeting</li>
+                        <li>• Implement new ad variations</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-700 mb-2">Week 2-4</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• Scale successful tests</li>
+                        <li>• Optimize based on learnings</li>
+                        <li>• Prepare next phase testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
