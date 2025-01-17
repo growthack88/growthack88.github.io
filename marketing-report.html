@@ -1,111 +1,235 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Sportswear Marketing Report - January 2025</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50">
-    <div class="container mx-auto px-4 py-8 max-w-7xl">
-        <div class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-gray-900">Kids Sportswear Marketing Report</h1>
-            <p class="text-gray-600 mt-2">January 2025 Performance Analysis</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <!-- ROAS -->
-            <div class="bg-white rounded-lg shadow p-6">
-                <h3 class="text-sm text-gray-500">ROAS</h3>
-                <div class="text-2xl font-bold">5.67x</div>
-                <div class="text-green-500 text-sm">↑18.1% vs previous</div>
-            </div>
-            
-            <!-- CTR -->
-            <div class="bg-white rounded-lg shadow p-6">
-                <h3 class="text-sm text-gray-500">CTR</h3>
-                <div class="text-2xl font-bold">3.84%</div>
-                <div class="text-green-500 text-sm">↑20% vs previous</div>
-            </div>
-            
-            <!-- CPA -->
-            <div class="bg-white rounded-lg shadow p-6">
-                <h3 class="text-sm text-gray-500">CPA</h3>
-                <div class="text-2xl font-bold">EGP 411.21</div>
-                <div class="text-green-500 text-sm">↓8.6% vs previous</div>
-            </div>
-            
-            <!-- Conversion Rate -->
-            <div class="bg-white rounded-lg shadow p-6">
-                <h3 class="text-sm text-gray-500">Conversion Rate</h3>
-                <div class="text-2xl font-bold">2.8%</div>
-                <div class="text-green-500 text-sm">↑33.3% vs previous</div>
-            </div>
-        </div>
-        
-        <!-- Campaign Performance -->
-        <div class="bg-white rounded-lg shadow p-6 mb-8">
-            <h2 class="text-xl font-bold mb-4">Campaign Performance</h2>
-            <div class="space-y-4">
-                <div>
-                    <h3 class="font-medium">Winter Collection</h3>
-                    <p class="text-sm text-gray-600">ROAS: 16.99x (vs 12.5x benchmark)</p>
-                </div>
-                <div>
-                    <h3 class="font-medium">MSG/Nov Campaign</h3>
-                    <p class="text-sm text-gray-600">ROAS: 6.37x (vs 5.5x benchmark)</p>
-                </div>
-                <div>
-                    <h3 class="font-medium">MSG/Winter Campaign</h3>
-                    <p class="text-sm text-gray-600">ROAS: 3.77x (vs 4.0x benchmark)</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Quick Wins & Recommendations -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div class="bg-white rounded-lg shadow p-6">
-                <h2 class="text-xl font-bold mb-4">Quick Wins</h2>
-                <ul class="space-y-3">
-                    <li>• Scale Winter Collection (+20% budget)</li>
-                    <li>• Implement retargeting exclusions</li>
-                    <li>• Optimize audience segments</li>
-                    <li>• Update frequency caps</li>
-                </ul>
-            </div>
-            
-            <div class="bg-white rounded-lg shadow p-6">
-                <h2 class="text-xl font-bold mb-4">Testing Framework</h2>
-                <ul class="space-y-3">
-                    <li>• Seasonal vs Generic Content</li>
-                    <li>• UGC vs Professional Content</li>
-                    <li>• Interest Targeting Expansion</li>
-                    <li>• LAL Audience Scaling</li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Budget Allocation -->
-        <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-xl font-bold mb-4">Budget Allocation</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-medium mb-2">Performance (70%)</h3>
-                    <ul class="space-y-2">
-                        <li>• Winter Collection: 40%</li>
-                        <li>• MSG/Nov: 20%</li>
-                        <li>• MSG/Winter: 10%</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-medium mb-2">Testing (30%)</h3>
-                    <ul class="space-y-2">
-                        <li>• Creative Tests: 15%</li>
-                        <li>• Audience Tests: 15%</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { 
+  TrendingUp, TrendingDown, 
+  BarChart, Target, ShoppingCart, 
+  Users, CreditCard, ArrowUpCircle, 
+  ArrowDownCircle, CheckCircle 
+} from 'lucide-react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart as ReBarChart, Bar } from 'recharts';
+
+const MetricCard = ({ label, current, previous, prefix = '', suffix = '' }) => {
+  const percentChange = ((current - previous) / previous * 100).toFixed(1);
+  const isPositive = current > previous;
+  
+  return (
+    <div className="flex flex-col p-4 bg-white rounded-lg border">
+      <span className="text-sm text-gray-500">{label}</span>
+      <div className="text-2xl font-bold mt-2">{prefix}{current}{suffix}</div>
+      <div className={`flex items-center text-sm mt-1 ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
+        {isPositive ? <TrendingUp size={16} className="mr-1" /> : <TrendingDown size={16} className="mr-1" />}
+        {Math.abs(percentChange)}% vs last period
+      </div>
     </div>
-</body>
-</html>
+  );
+};
+
+const FullMarketingReport = () => {
+  const campaignData = [
+    { name: 'Winter Collection', current: 16.99, previous: 12.5 },
+    { name: 'MSG/Nov', current: 6.37, previous: 5.5 },
+    { name: 'MSG/Winter', current: 3.77, previous: 4.0 }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50 p-8">
+      {/* Header Section */}
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-800">Performance Marketing Report</h1>
+          <p className="text-gray-500 mt-2">Kids Sportswear Egypt - January 2025</p>
+        </div>
+
+        {/* Key Metrics Overview */}
+        <div className="grid grid-cols-4 gap-4 mb-8">
+          <MetricCard label="ROAS" current={5.67} previous={4.8} suffix="x" />
+          <MetricCard label="CTR" current={3.84} previous={3.2} suffix="%" />
+          <MetricCard label="CPA" current={411.21} previous={450} prefix="EGP " />
+          <MetricCard label="Conversion Rate" current={2.8} previous={2.1} suffix="%" />
+        </div>
+
+        {/* Performance Analysis */}
+        <div className="grid grid-cols-2 gap-8 mb-8">
+          {/* Campaign Performance Chart */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Campaign ROAS Performance</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="h-64">
+                <ResponsiveContainer width="100%" height="100%">
+                  <ReBarChart data={campaignData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Bar dataKey="current" fill="#3b82f6" name="Current" />
+                    <Bar dataKey="previous" fill="#93c5fd" name="Previous" />
+                  </ReBarChart>
+                </ResponsiveContainer>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Key Findings */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Key Performance Insights</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <ArrowUpCircle className="text-green-500 mt-1" size={20} />
+                  <div>
+                    <h4 className="font-semibold">Overall ROAS Improvement</h4>
+                    <p className="text-sm text-gray-600">18.1% increase vs previous period driven by winter collection</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <ArrowUpCircle className="text-green-500 mt-1" size={20} />
+                  <div>
+                    <h4 className="font-semibold">Strong CTR Performance</h4>
+                    <p className="text-sm text-gray-600">20% above benchmark and industry standards</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <ArrowDownCircle className="text-green-500 mt-1" size={20} />
+                  <div>
+                    <h4 className="font-semibold">CPA Optimization</h4>
+                    <p className="text-sm text-gray-600">8.6% reduction in acquisition costs</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Recommendations and Action Plan */}
+        <div className="grid grid-cols-3 gap-8 mb-8">
+          {/* Quick Wins */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Quick Win Recommendations</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="text-green-500 mt-1" size={16} />
+                  <div>
+                    <p className="font-semibold">Scale Winter Collection</p>
+                    <ul className="text-sm text-gray-600 list-disc pl-4 mt-1">
+                      <li>Increase budget by 20%</li>
+                      <li>Expand to 2% LAL</li>
+                      <li>Test new creative variants</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="text-green-500 mt-1" size={16} />
+                  <div>
+                    <p className="font-semibold">Optimize Retargeting</p>
+                    <ul className="text-sm text-gray-600 list-disc pl-4 mt-1">
+                      <li>Implement exclusion structure</li>
+                      <li>Set frequency caps</li>
+                      <li>Update audience segments</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Testing Framework */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Testing Framework</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-700">Creative Tests</h4>
+                  <ul className="text-sm text-gray-600 list-disc pl-4 mt-1">
+                    <li>Seasonal vs Generic Content</li>
+                    <li>UGC vs Professional Content</li>
+                    <li>Video Length Variations</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-700">Audience Tests</h4>
+                  <ul className="text-sm text-gray-600 list-disc pl-4 mt-1">
+                    <li>Interest Targeting Expansion</li>
+                    <li>LAL Audience Scaling</li>
+                    <li>Retargeting Window Testing</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Budget Allocation */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Budget Allocation</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-700">Performance (70%)</h4>
+                  <ul className="text-sm text-gray-600 list-disc pl-4 mt-1">
+                    <li>Winter Collection: 40%</li>
+                    <li>MSG/Nov: 20%</li>
+                    <li>MSG/Winter: 10%</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-700">Testing (30%)</h4>
+                  <ul className="text-sm text-gray-600 list-disc pl-4 mt-1">
+                    <li>Creative Tests: 15%</li>
+                    <li>Audience Tests: 15%</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Implementation Timeline */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>Implementation Timeline</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-3 gap-8">
+              <div>
+                <h4 className="font-semibold text-gray-700 mb-2">Immediate (24-48 hrs)</h4>
+                <ul className="text-sm text-gray-600 list-disc pl-4">
+                  <li>Increase Winter Collection budget</li>
+                  <li>Set up retargeting exclusions</li>
+                  <li>Update frequency caps</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-700 mb-2">Week 1</h4>
+                <ul className="text-sm text-gray-600 list-disc pl-4">
+                  <li>Launch creative tests</li>
+                  <li>Expand audience targeting</li>
+                  <li>Implement new ad variations</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-700 mb-2">Week 2-4</h4>
+                <ul className="text-sm text-gray-600 list-disc pl-4">
+                  <li>Scale successful tests</li>
+                  <li>Optimize based on learnings</li>
+                  <li>Prepare next phase testing</li>
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default FullMarketingReport;
